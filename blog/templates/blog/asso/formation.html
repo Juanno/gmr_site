@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+<div class="col-md-12 ">
+    <h3>{{ formation.name }}</h3>
+</div>
+
+<div class="col-md-12 custom_article">
+    {{ formation.contenu|safe }}
+</div>
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Adhesion{% endblock %}
+
+{% block body %}
+<div class="col-md-12 ">
+    <h3>{{ reglement.name }}</h3>
+</div>
+
+
+<div class="col-md-12 custom_article">
+    {{ reglement.contenu|safe }}
+</div>
+
+{% endblock %}
+

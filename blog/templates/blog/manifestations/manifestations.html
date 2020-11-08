@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Manifestations{% endblock %}
+
+{% block body %}
+
+{% for manifestation in manifestations %}
+<div class="content custom_photos_content">
+    <div class="col-md-12">
+        <h3>{{ manifestation.name }}</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ manifestation.contenu|safe }}
+        </div>
+    </div>
+</div>
+
+{%endfor %}
+
+{% endblock %}
+

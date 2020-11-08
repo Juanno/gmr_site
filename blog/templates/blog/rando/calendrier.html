@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Calendrier{% endblock %}
+
+{% block body %}
+<div class="col-md-12 ">
+    <h3>{{ calendrier.name }}</h3>
+</div>
+
+<div class="col-md-12 custom_article">
+    <span>
+        <a href="{{ calendrier.calendrier_pdf.url }}" download>Cliquez pour télécharger le pdf.</a>
+    </span>
+</div>
+
+<div class="col-md-12 custom_article">
+    {{ calendrier.contenu|safe }}
+</div>
+
+
+
+
+{% endblock %}
+

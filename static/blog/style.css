@@ -1,0 +1,22 @@
+#homepage {
+    padding:20px;
+    background-image: url("/media/background_accueil.jpg");
+}
+
+.main_index {
+    margin-top: 30px;
+}
+
+.dropdown-item {
+    color: rgba(255,255,255,.5)!important;
+}
+
+.dropdown-item:hover {
+    color: #16181b !important;
+    text-decoration: none!important;
+    background-color: #4d5052 !important;
+}
+
+.custom_article {
+    margin-top: 45px;
+}

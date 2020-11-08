@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+
+{% block title %}GMR Accueil{% endblock %}
+
+{% block body %}
+
+{% for accueil in all_accueil %}
+
+<div class="content custom_photos_content">
+
+    <div class="col-md-12">
+        <h3>{{ accueil.name }}</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ accueil.contenu|safe }}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <img class="img-fluid" src="{{ accueil.image.url }}" alt="{{ photo.name }}">
+    </div>
+
+</div>
+
+{%endfor %}
+
+
+{% endblock %}
+
+
+

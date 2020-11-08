@@ -1,0 +1,1 @@
+from .manifestations import Manifestation

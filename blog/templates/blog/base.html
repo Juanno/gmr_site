@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GMR Roanne</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid" id="homepage">
+    <div class="container">
+        <nav>
+            {% block nav %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+                <a class="navbar-brand" href="{% url 'index' %}">GMR</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}">Accueil</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarRandos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Randonnées
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarRandos">
+                                <a class="dropdown-item" href="{% url 'calendrier' %}">Calendrier Semestriel</a>
+                                <a class="dropdown-item" href="{% url 'animateurs' %}">Animateurs Rando</a>
+                                <a class="dropdown-item" href="{% url 'commandement' %}">Les commandements du randonneur</a>
+                                <a class="dropdown-item" href="{% url 'cartotheque' %}">Cartothèque IGN</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarSejours" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sejours
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarSejours">
+                                {% for sejour in all_sejours %}
+                                <a class="dropdown-item" href="/sejours/{{ sejour.id }}">{{ sejour }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'photos' %}">Photos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarAsso" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                L'association
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarAsso">
+                                <a class="dropdown-item" href="{% url 'bureau' %}">Le bureau</a>
+                                <a class="dropdown-item" href="{% url 'reglement' %}">Règlement intérieur</a>
+                                <a class="dropdown-item" href="{% url 'adhesion' %}">Adhésion</a>
+                                <a class="dropdown-item" href="{% url 'formation' %}">Les formations</a>
+                                <a class="dropdown-item" href="#">~Contact</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'manifestations' %}">Manifestations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Livres d'Or</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            {% endblock %}
+        </nav>
+        <div class="header_logo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img src="/media/gmr_logo.jpg" alt="GMR Logo">
+                    </div>
+                    <div class="col-sm-8">
+                        <h1>Groupe Montagnard Roannais</h1>
+                    </div>
+                    <div class="col-sm-2">
+                        <img src="/media/gmr_logo.jpg" alt="GMR Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            {% block body %}
+            {% endblock %}
+        </div>
+        <div class="col-md-3" >
+            <h2>Actualités</h2>
+            <button class="fb-placeholder-button j-fb-placeholder-button">
+                <a href="">
+                    <span class="like-icon"></span>Connexion à Facebook
+                </a>
+            </button>
+            {% for actu in all_actu %}
+            <h4>{{ actu.name }}</h4>
+            <span>{{ actu.contenu|safe }}</span>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+
+
+<footer  id="sticky-footer" class="page-footer py-4 bg-dark text-white-50">
+    <div class="container text-center">
+        <small>Copyright © GRM 2020</small>
+    </div>
+</footer>
+
+</body>
+</html>
